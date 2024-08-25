@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manager : MonoSingleton<Manager>
+public class GameManager : MonoSingleton<GameManager>
 {
-    public List<GameObject> CrossObjects;
     public List<LevelConfig> levelConfigs;
     public T GetResourceFile<T>(string path) where T : Object
     {
@@ -20,7 +19,7 @@ public class Manager : MonoSingleton<Manager>
         }
         else
         {
-            SceneMangaer4.Instance.Runlevel();
+            GamePlayManager.Instance.Runlevel();
         }
     }
     public LevelConfig GetConfig(int level)

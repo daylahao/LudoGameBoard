@@ -45,7 +45,7 @@ public class Dice4 : MonoBehaviour
         rollButton.interactable = false; // Lock button after rolling
         if(diceValue != 6||diceValue!=1)
         {
-            SceneMangaer4.Instance.CheckPieces();
+            GamePlayManager.Instance.CheckPieces();
         }
     }
 
