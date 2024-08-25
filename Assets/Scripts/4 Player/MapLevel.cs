@@ -33,13 +33,13 @@ public class HouseCross
 {
     public namePieces Name;
     public GameObject GroupCross;
-    public List<GameObject> Crosses;
+    public List<CrossBase> Crosses;
     public  void Initialize()
     {
         for (int i = 0; i < GroupCross.transform.childCount; i++)
         {
             //GameObject cross = Instantiate(GroupPositionCross, new Vector3(0, 0, 0), Quaternion.identity);
-            Crosses.Add(GroupCross.transform.GetChild(i).gameObject);
+            Crosses.Add(GroupCross.transform.GetChild(i).gameObject.GetComponent<CrossBase>());
         }
     }
 }
