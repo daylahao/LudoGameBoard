@@ -25,9 +25,12 @@ public class PiecesBase : MonoBehaviour
         if(SceneMangaer4.Instance.turnCurrent == Name)
         {
             stepdice = SceneMangaer4.Instance.dice.GetDiceValue();
-            if (stepdice != 0)
+            if (stepdice != 0 && (Step+stepdice)<=SceneMangaer4.Instance.levelConfig.TotalCross)
             {
                 Move(stepdice);
+            }else if(Step== SceneMangaer4.Instance.levelConfig.TotalCross)
+            {
+                this.transform.position = SceneMangaer4.Instance.houses[0].transform.GetChild(stepdice-1).transform.position;  
             }
         }
     }

@@ -13,6 +13,7 @@ public class SceneMangaer4 : MonoSingleton<SceneMangaer4>
     public Dice4 dice;
     public GameObject Grouppieces;
     public List<PiecesBase> pieces;
+    public List<House> houses;
     // Start is called before the first frame update
     void Start()
     {
