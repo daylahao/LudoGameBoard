@@ -42,4 +42,15 @@ public class HouseCross
             Crosses.Add(GroupCross.transform.GetChild(i).gameObject.GetComponent<CrossBase>());
         }
     }
+    public bool CheckWin()
+    {
+        for (int i = 0; i < Crosses.Count; i++)
+        {
+            if (Crosses[i].GetName() == namePieces.None)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

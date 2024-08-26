@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -41,42 +42,59 @@ public class PiecesBase : MonoBehaviour
     {
         if (IsMoving)
         {
-            if (stepdice >0 && (Step+stepdice)<=GamePlayManager.Instance.TotalCross)
+            if (Step+stepdice<=GamePlayManager.Instance.TotalCross)
             {
-                if (this.transform.position == GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position)
+                if (stepdice > 0 && (Step + stepdice) <= GamePlayManager.Instance.TotalCross)
                 {
-                    Step++;
-                    stepdice--;
-                    CurrentPosition++;
-                    if (CurrentPosition > GamePlayManager.Instance.TotalCross)
+                    if (this.transform.position == GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position)
                     {
-                        CurrentPosition = 0;
+                        Step++;
+                        stepdice--;
+                        CurrentPosition++;
+                        if (CurrentPosition > GamePlayManager.Instance.TotalCross)
+                        {
+                            CurrentPosition = 0;
+                        }
                     }
                 }
-            }
-            else if (this.transform.position == GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position)
-            {
-                //this.transform.position = GamePlayManager.Instance.Crosses[CurrentPosition].transform.position;
-                GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].GetComponent<CrossBase>().SetPieces(this);
-                IsMoving = false;
-                EndMoving();
-            }
-            if (Step+GamePlayManager.Instance.dice.diceValue > GamePlayManager.Instance.TotalCross)
-            {
-                int temp = (CurrentPosition + GamePlayManager.Instance.dice.GetDiceValue()) - GamePlayManager.Instance.TotalCross;
-                if (this.transform.position == GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position)
+                else if (this.transform.position == GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position)
                 {
+                    //this.transform.position = GamePlayManager.Instance.Crosses[CurrentPosition].transform.position;
+                    GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].GetComponent<CrossBase>().SetPieces(this);
+                    IsMoving = false;
+                    EndMoving();
+                    return;
+                }
+                if (CurrentPosition <= GamePlayManager.Instance.TotalCross)
+                    this.transform.position = Vector3.MoveTowards(this.transform.position, GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position, 0.1f);
+            }
+            else
+            {
+                if (Step== GamePlayManager.Instance.TotalCross)
+                {
+                    Step++;
+                    CurrentPosition = 0;
+                    stepdice--;
+
+                }
+                if (stepdice>0 && this.transform.position == GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[CurrentPosition].transform.position)
+                {
+
                     Step++;
                     stepdice--;
                     CurrentPosition++;
+                    Debug.Log(CurrentPosition);
                 }
-            }
-            if(CurrentPosition<GamePlayManager.Instance.TotalCross)
-            this.transform.position = Vector3.MoveTowards(this.transform.position, GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position, 0.1f);
-            if(CurrentPosition > GamePlayManager.Instance.TotalCross)
-            {
-                int temp = (CurrentPosition + GamePlayManager.Instance.dice.GetDiceValue()) - GamePlayManager.Instance.TotalCross;
-                this.transform.position = Vector3.MoveTowards(this.transform.position, GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[temp-1].transform.position, 0.1f);
+                else if (this.transform.position == GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[CurrentPosition].transform.position)
+                {
+                    //this.transform.position = GamePlayManager.Instance.Crosses[CurrentPosition].transform.position;
+                    GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[CurrentPosition].SetPieces(this);
+                    IsMoving = false;
+                    EndMoving();
+                    return;
+                }
+                this.transform.position = Vector3.MoveTowards(this.transform.position, GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[CurrentPosition].transform.position, 0.1f);
+            
             }
         }
     }
@@ -118,31 +136,6 @@ public class PiecesBase : MonoBehaviour
                 }
         }
     }
-    //Bo me no di
-    //public bool CheckStepAfter()
-    //{
-    //    if (Step + stepdice <= GamePlayManager.Instance.TotalCross)
-    //    {
-    //        for (int i = CurrentPosition + 1; i <= CurrentPosition + stepdice; i++)
-    //        {
-    //            int temp = i;
-    //            if (i > GamePlayManager.Instance.TotalCross)
-    //            {
-    //                temp = i - (GamePlayManager.Instance.TotalCross + 1);
-    //            }
-    //            if (i < (CurrentPosition + stepdice) && GamePlayManager.Instance.mapLevel.Crosses[temp].GetComponent<CrossBase>().GetName() != namePieces.None)
-    //            {
-    //                return true;
-    //            }
-    //            else if (i == (CurrentPosition + stepdice) && GamePlayManager.Instance.mapLevel.Crosses[temp].GetComponent<CrossBase>().GetName() == Name)
-    //            {
-    //                return true;
-    //            }
-
-    //        }
-    //    }
-    //    return false;
-    //}
     public bool CheckCanMove()
     {
         stepdice = GamePlayManager.Instance.dice.GetDiceValue();
@@ -158,19 +151,7 @@ public class PiecesBase : MonoBehaviour
             }
             return false;
         }
-         if (!IsOut && (Step + stepdice)>=GamePlayManager.Instance.TotalCross)
-        {
-                int temp = (CurrentPosition + GamePlayManager.Instance.dice.GetDiceValue()) - GamePlayManager.Instance.TotalCross;
-                for(int i = 0;i<temp; i++)
-                {
-                    if(GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[i].GetName()!= namePieces.None)
-                    {
-                        return false;
-                    }
-                }
-                return true;
-        }
-        if (!IsOut && Step + stepdice < GamePlayManager.Instance.TotalCross)
+        if (!IsOut && Step + stepdice <=GamePlayManager.Instance.TotalCross)
         {
             for (int i = CurrentPosition + 1; i <= CurrentPosition + stepdice; i++)
             {
@@ -178,6 +159,7 @@ public class PiecesBase : MonoBehaviour
                 if (i > GamePlayManager.Instance.TotalCross)
                 {
                     temp = i - (GamePlayManager.Instance.TotalCross + 1);
+                    
                 }
                 if (i < (CurrentPosition + stepdice) && GamePlayManager.Instance.mapLevel.Crosses[temp].GetComponent<CrossBase>().GetName() != namePieces.None)
                 {
@@ -191,8 +173,31 @@ public class PiecesBase : MonoBehaviour
             }
             return true;
 
+        }else
+        if (!IsOut && (Step + stepdice) > GamePlayManager.Instance.TotalCross && Step>=GamePlayManager.Instance.TotalCross)
+        {
+            if ((Step + stepdice) - GamePlayManager.Instance.TotalCross <GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses.Count)
+            {
+                int temp = (CurrentPosition + stepdice) - GamePlayManager.Instance.TotalCross;
+                for (int i = 0; i < temp; i++)
+                {
+                    if (GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[i].GetName() != namePieces.None)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-            return true;
+        else if(!IsOut && (Step + stepdice) > GamePlayManager.Instance.TotalCross && Step < GamePlayManager.Instance.TotalCross)
+        {
+            return false;
+        }
+        return true;
     }
 
     public void Back()

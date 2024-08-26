@@ -59,12 +59,24 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
             NextTurn();
             }
     }
+    public void CheckWin()
+    {
+        foreach (HouseCross House in mapLevel.houses)
+        {
+            if (House.CheckWin())
+            {
+                Debug.Log("Win");
+                MangerUIScene4.Instance.infoText.text = "Người chơi " + turnCurrent + " thắng";
+            }
+        }
+    }
     public void NextTurn()
     {
+        CheckWin();
         if (dice.diceValue == 6||dice.diceValue == 1)
         {
             Debug.Log("Lac tiep");
-            MangerUIScene4.Instance.infoText.text = "Được lắc thêm\nlượt xúc xắc";
+            //MangerUIScene4.Instance.infoText.text = "Được lắc thêm\nlượt xúc xắc";
         }
             
         else

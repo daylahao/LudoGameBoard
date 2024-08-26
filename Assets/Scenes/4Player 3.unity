@@ -896,8 +896,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerQuantity: 4
   turnCurrent: 0
-  GroupPositionCross: {fileID: 193678021}
-  CrossObjects: []
   TotalCross: 0
   levelConfig:
     PlayerQuantity: 0
@@ -906,10 +904,7 @@ MonoBehaviour:
   dice: {fileID: 8624081661413977970}
   Grouppieces: {fileID: 1722425114}
   pieces: []
-  houses:
-  - Name: 0
-    GroupCross: {fileID: 0}
-    Crosses: []
+  mapLevel: {fileID: 0}
 --- !u!4 &1436836409
 Transform:
   m_ObjectHideFlags: 0
@@ -938,6 +933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Thumb: {fileID: 53385577}
+  infoText: {fileID: 1002134185}
 --- !u!1 &1526558455
 GameObject:
   m_ObjectHideFlags: 0
