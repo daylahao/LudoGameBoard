@@ -59,29 +59,40 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
             NextTurn();
             }
     }
-    public void CheckWin()
+    public bool CheckWin()
     {
         foreach (HouseCross House in mapLevel.houses)
         {
             if (House.CheckWin())
             {
-                Debug.Log("Win");
-                MangerUIScene4.Instance.infoText.text = "Người chơi " + turnCurrent + " thắng";
+                return true;
             }
         }
+        return false;
+    }
+    public void HandleWinGame()
+    {
+
+        Debug.Log("Người chơi " + turnCurrent + " thắng");
     }
     public void NextTurn()
     {
-        CheckWin();
-        if (dice.diceValue == 6||dice.diceValue == 1)
+        if (CheckWin())
         {
-            Debug.Log("Lac tiep");
-            //MangerUIScene4.Instance.infoText.text = "Được lắc thêm\nlượt xúc xắc";
+            HandleWinGame();
+            return;
         }
-            
         else
-        turnCurrent = (namePieces)(((int)turnCurrent + 1) % playerQuantity);
-        dice.ResetDice();
-        MangerUIScene4.Instance.ChangeThumb();
+        {
+            if (dice.diceValue == 6 || dice.diceValue == 1)
+            {
+                //Debug.Log("Lac tiep");
+                //MangerUIScene4.Instance.infoText.text = "Được lắc thêm\nlượt xúc xắc";
+            }
+            else
+                turnCurrent = (namePieces)(((int)turnCurrent + 1) % playerQuantity);
+            dice.ResetDice();
+            MangerUIScene4.Instance.ChangeThumb();
+        }
     }
 }

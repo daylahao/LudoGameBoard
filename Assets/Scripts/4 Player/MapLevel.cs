@@ -44,13 +44,18 @@ public class HouseCross
     }
     public bool CheckWin()
     {
+        int count  = 0;
         for (int i = 0; i < Crosses.Count; i++)
         {
-            if (Crosses[i].GetName() == namePieces.None)
+            if(Crosses[i].GetName()!=namePieces.None)
             {
-                return false;
+                count++;
             }
         }
-        return true;
+        if(count == GamePlayManager.Instance.levelConfig.PlayerQuantity)
+        {
+            return true;
+        }else
+        return false;
     }
 }

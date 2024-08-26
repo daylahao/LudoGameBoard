@@ -39,7 +39,7 @@ public class Dice4 : MonoBehaviour
         int diceValue_ = randomDiceFace + 1;
         diceRenderer.sprite = diceFaces[randomDiceFace]; // Cập nhật hình ảnh cuối cùng của xúc xắc
 
-        Debug.Log("Xúc xắc hiện tại: " + diceValue_);
+        //Debug.Log("Xúc xắc hiện tại: " + diceValue_);
         //gameManager2.SetDiceResult(diceValue);
         diceValue = diceValue_;
         rollButton.interactable = false; // Lock button after rolling
