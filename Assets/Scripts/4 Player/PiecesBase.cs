@@ -86,6 +86,7 @@ public class PiecesBase : MonoBehaviour
         {
             if (GamePlayManager.Instance.mapLevel.Crosses[GamePlayManager.Instance.levelConfig.Position[(int)Name].P_Start].GetComponent<CrossBase>().GetName()==Name)
             {
+                MangerUIScene4.Instance.infoText.text = "Xúc xắc 1 hoặc 6\nmới được ra quân";
                 Debug.Log("Khoong the ra quan");
                 return;
             }
@@ -205,6 +206,7 @@ public class PiecesBase : MonoBehaviour
     }
     public void EndMoving()
     {
+        MangerUIScene4.Instance.infoText.text = "Kết thúc lượt!\nLắc xúc xắc";
         GamePlayManager.Instance.NextTurn();
     }
 }

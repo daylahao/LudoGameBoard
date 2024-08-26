@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -62,7 +62,11 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
     public void NextTurn()
     {
         if (dice.diceValue == 6||dice.diceValue == 1)
+        {
             Debug.Log("Lac tiep");
+            MangerUIScene4.Instance.infoText.text = "Được lắc thêm\nlượt xúc xắc";
+        }
+            
         else
         turnCurrent = (namePieces)(((int)turnCurrent + 1) % playerQuantity);
         dice.ResetDice();
