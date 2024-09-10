@@ -1,13 +1,17 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 public class MapLevel : MonoBehaviour
 {
     public List<HouseCross> houses;
     public GameObject GroupCross;
     public List<CrossBase> Crosses;
+    [Header("Điểm để sinh ra các quân cờ (Bắt buộc)")]
+    public List<PointSpawnPieces> PointGroupPieces;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +30,17 @@ public class MapLevel : MonoBehaviour
     void Update()
     {
         
+    }
+    public Transform FindPointName(namePieces name)
+    {
+        foreach (var item in PointGroupPieces)
+        {
+            if (item.Name == name)
+            {
+                return item.Point.transform;
+            }
+        }
+        return null;
     }
 }
 [System.Serializable]
@@ -52,10 +67,19 @@ public class HouseCross
                 count++;
             }
         }
-        if(count == GamePlayManager.Instance.levelConfig.PlayerQuantity)
+        if(count == GamePlayManager.Instance.levelConfig.ChessPieceCount)
         {
             return true;
         }else
         return false;
     }
+    
+}
+
+[System.Serializable]
+public class PointSpawnPieces
+{
+    public namePieces Name;
+    public GameObject Point;
+
 }

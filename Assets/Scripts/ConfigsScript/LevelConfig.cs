@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -31,6 +31,8 @@ public class LevelConfigs : ScriptableObject
 public class LevelConfig
 {
     public int PlayerQuantity;
+    public int ChessPieceCount;
+    public GameObject Map;
     public int TotalCross;
     public List<PiecesConfig> Position;
 }
@@ -40,12 +42,15 @@ public enum namePieces{
     Blue=0,
     Yellow=1,
     Green=2,
-    Red=3
+    Red=3,
+    Purple=4
 }
 [System.Serializable]
 public class PiecesConfig
 {
     public Sprite sprite;
+    [Header("Prefab của Quân cờ")]
+    public GameObject Prefab;
     public namePieces name;
     public int P_Start;
 }

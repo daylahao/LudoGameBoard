@@ -14,7 +14,7 @@ public class MangerUIScene4 : MonoSingleton<MangerUIScene4>
     }
     public void ChangeThumb()
     {
-        Thumb.sprite = GamePlayManager.Instance.levelConfig.Position[(int)GamePlayManager.Instance.turnCurrent].sprite;
+        Thumb.sprite = GamePlayManager.Instance.levelConfig.Position[GamePlayManager.Instance.turnTemp].sprite;
     }
     // Update is called once per frame
     void Update()

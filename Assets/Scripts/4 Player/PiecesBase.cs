@@ -77,7 +77,7 @@ public class PiecesBase : MonoBehaviour
                     stepdice--;
 
                 }
-                if (stepdice>0 && this.transform.position == GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[CurrentPosition].transform.position)
+                if (stepdice>0 && this.transform.position == GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[CurrentPosition].transform.position)
                 {
 
                     Step++;
@@ -85,15 +85,15 @@ public class PiecesBase : MonoBehaviour
                     CurrentPosition++;
                     //Debug.Log(CurrentPosition);
                 }
-                else if (this.transform.position == GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[CurrentPosition].transform.position)
+                else if (this.transform.position == GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[CurrentPosition].transform.position)
                 {
                     //this.transform.position = GamePlayManager.Instance.Crosses[CurrentPosition].transform.position;
-                    GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[CurrentPosition].SetPieces(this);
+                    GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[CurrentPosition].SetPieces(this);
                     IsMoving = false;
                     EndMoving();
                     return;
                 }
-                this.transform.position = Vector3.MoveTowards(this.transform.position, GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[CurrentPosition].transform.position, 0.1f);
+                this.transform.position = Vector3.MoveTowards(this.transform.position, GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[CurrentPosition].transform.position, 0.1f);
             
             }
         }
@@ -102,14 +102,14 @@ public class PiecesBase : MonoBehaviour
     {
         if (IsOut && (step_ == 1 || step_ == 6))
         {
-            if (GamePlayManager.Instance.mapLevel.Crosses[GamePlayManager.Instance.levelConfig.Position[(int)Name].P_Start].GetComponent<CrossBase>().GetName()==Name)
+            if (GamePlayManager.Instance.mapLevel.Crosses[GamePlayManager.Instance.levelConfig.Position[GamePlayManager.Instance.turnTemp].P_Start].GetComponent<CrossBase>().GetName()==Name)
             {
                 MangerUIScene4.Instance.infoText.text = "Xúc xắc 1 hoặc 6\nmới được ra quân";
                 //Debug.Log("Khoong the ra quan");
                 return;
             }
             else{
-                CurrentPosition = GamePlayManager.Instance.levelConfig.Position[(int)Name].P_Start;
+                CurrentPosition = GamePlayManager.Instance.levelConfig.Position[GamePlayManager.Instance.turnTemp].P_Start;
                 this.transform.transform.position = GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position;
                 GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].GetComponent<CrossBase>().SetPieces(this);
                 IsOut = false;
@@ -131,7 +131,7 @@ public class PiecesBase : MonoBehaviour
                 }
                 if (Step > GamePlayManager.Instance.TotalCross)
                 {
-                    GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[CurrentPosition].ClearPieces();
+                    GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[CurrentPosition].ClearPieces();
                 }
                     IsMoving = true;
                 }
@@ -150,7 +150,7 @@ public class PiecesBase : MonoBehaviour
         {
             if (stepdice == 1 || stepdice == 6)
             {
-                if (GamePlayManager.Instance.mapLevel.Crosses[GamePlayManager.Instance.levelConfig.Position[(int)Name].P_Start].GetComponent<CrossBase>().GetName() == Name)
+                if (GamePlayManager.Instance.mapLevel.Crosses[GamePlayManager.Instance.levelConfig.Position[GamePlayManager.Instance.turnTemp].P_Start].GetComponent<CrossBase>().GetName() == Name)
                 {
                     return false;
                 }
@@ -180,10 +180,10 @@ public class PiecesBase : MonoBehaviour
             }
             return true;
 
-        }else
+        }else//Lên chuồng
         if (!IsOut && (Step + stepdice) > GamePlayManager.Instance.TotalCross && Step>=GamePlayManager.Instance.TotalCross)
         {
-            if ((Step + stepdice) - GamePlayManager.Instance.TotalCross <=GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses.Count)
+            if ((Step + stepdice) - GamePlayManager.Instance.TotalCross <=GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses.Count)
             {
                 int temp = (Step + stepdice) - GamePlayManager.Instance.TotalCross;
                 int temp1 = Step - GamePlayManager.Instance.TotalCross;
@@ -194,9 +194,9 @@ public class PiecesBase : MonoBehaviour
                 for (int i = temp1; i <temp; i++)
                 {
                    
-                    if (GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[i].GetName() != namePieces.None)
+                    if (GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[i].GetName() != namePieces.None)
                     {
-                        Debug.Log(GamePlayManager.Instance.mapLevel.houses[(int)Name].Crosses[i].GetName());
+                        Debug.Log(GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[i].GetName());
                         Debug.Log("Khong the di qua trong chuong");
                         return false;
                     }

@@ -21,6 +21,7 @@ public class Dice4 : MonoBehaviour
     }
     private void OnRollDice()
     {
+        Debug.Log("Roll Dice");
         if (!rollButton.interactable) return;
         StartCoroutine(RollDice());
     }
