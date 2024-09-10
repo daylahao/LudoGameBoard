@@ -3486,7 +3486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9f12784eefbf24fa0d9ebdc22b6280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PositionDialog: {fileID: 825446286}
+  PositionDialog: {fileID: 1277122928}
 --- !u!4 &844183311
 Transform:
   m_ObjectHideFlags: 0
