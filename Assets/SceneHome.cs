@@ -9,11 +9,11 @@ public class SceneHome : MonoSingleton<SceneHome>
     void Start()
     {
 
-        GameManager.Instance._popUpContainer = PositionDialog;
     }
   
     public void RunScene()
     {
+        GameManager.Instance._popUpContainer = PositionDialog;
         GameManager.Instance.OnShowDialog<MainMenuDialog>("Dialogs/MainMenuDialog");
     }
     // Update is called once per frame
