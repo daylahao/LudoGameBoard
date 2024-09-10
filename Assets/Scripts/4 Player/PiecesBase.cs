@@ -14,6 +14,7 @@ public class PiecesBase : MonoBehaviour
     public bool IsOut=true;
     public bool IsMoving = false;
     public int stepdice;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,7 @@ public class PiecesBase : MonoBehaviour
     {
         if (IsMoving)
         {
+
             if (Step+stepdice<=GamePlayManager.Instance.TotalCross)
             {
                 if (stepdice > 0 && (Step + stepdice) <= GamePlayManager.Instance.TotalCross)
@@ -96,6 +98,7 @@ public class PiecesBase : MonoBehaviour
                 this.transform.position = Vector3.MoveTowards(this.transform.position, GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[CurrentPosition].transform.position, 0.1f);
             
             }
+            animator.Play("Run");
         }
     }
     public void Move(int step_)

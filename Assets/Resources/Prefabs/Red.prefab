@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2738875894805115753}
   - component: {fileID: 3615436305450924646}
   - component: {fileID: 2579695263798702663}
+  - component: {fileID: -4317486166132107138}
   m_Layer: 5
   m_Name: Red
   m_TagString: redPiece
@@ -150,3 +151,25 @@ MonoBehaviour:
   IsOut: 1
   IsMoving: 0
   stepdice: 0
+  animator: {fileID: -4317486166132107138}
+--- !u!95 &-4317486166132107138
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5938430183287567890}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4547d3dbbd39a5458bbf7d3390a096d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

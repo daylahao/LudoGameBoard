@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6406623301449500592}
   - component: {fileID: 2544162781237601304}
   - component: {fileID: 8446302993675918339}
+  - component: {fileID: -7122290229425931310}
   m_Layer: 5
   m_Name: Yellow
   m_TagString: yellowPiece
@@ -150,3 +151,25 @@ MonoBehaviour:
   IsOut: 1
   IsMoving: 0
   stepdice: 0
+  animator: {fileID: -7122290229425931310}
+--- !u!95 &-7122290229425931310
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3668999007244062361}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4547d3dbbd39a5458bbf7d3390a096d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
