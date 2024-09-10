@@ -16,6 +16,7 @@ public class GameManager : MonoSingleton<GameManager>
         if(levelConfigs == null)
         {
             Debug.LogError("LevelConfigs is null");
+            Application.Quit();
         }
         else
         {

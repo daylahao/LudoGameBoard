@@ -22,7 +22,7 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
     }
     public void Runlevel()
     {
-        playerQuantity = 3;
+        playerQuantity = 4;
         levelConfig = GameManager.Instance.GetConfig(playerQuantity);
         TotalCross = levelConfig.TotalCross;
         Map  = Instantiate(levelConfig.Map,P_SpawnMap.transform);
