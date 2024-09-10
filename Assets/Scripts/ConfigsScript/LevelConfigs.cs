@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="Configs/LevelConfigs",fileName ="LevelConfigs")]
+[CreateAssetMenu(menuName ="configs/LevelConfigs",fileName ="LevelConfigs")]
 public class LevelConfigs : ScriptableObject
 {
     #region SingleTon
+    [SerializeField]
+
     private static LevelConfigs _isntance;
+    [SerializeField]
+
     public static LevelConfigs Instance
     {
         get
@@ -21,7 +25,10 @@ public class LevelConfigs : ScriptableObject
         }
     }
     #endregion
+    [SerializeField]
     public List<LevelConfig> _Level;
+    [SerializeField]
+
     public List<LevelConfig> GetConfig()
     {
         return _Level;
