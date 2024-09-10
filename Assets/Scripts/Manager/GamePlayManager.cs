@@ -18,10 +18,8 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
     // Start is called before the first frame update
     void Start()
     {
-      
-    }
-    public void Runlevel()
-    {
+        playerQuantity = GameManager.Instance.PlayQuantity;
+   
         playerQuantity = 4;
         levelConfig = GameManager.Instance.GetConfig(playerQuantity);
         TotalCross = levelConfig.TotalCross;
