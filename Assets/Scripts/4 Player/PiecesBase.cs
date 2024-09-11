@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PiecesBase : MonoBehaviour
 {
+    public GameObject Horse;
     public Vector2 DefaultPosition;
     public namePieces Name;
     public int Step;
@@ -39,11 +43,16 @@ public class PiecesBase : MonoBehaviour
         }
     }
     // Update is called once per frame
+    bool playanimationrun = false;
     void Update()
     {
         if (IsMoving)
         {
-
+            if(!playanimationrun)
+            {
+                Horse.GetComponent<Animator>().Play("Run");
+                playanimationrun = true;
+            }
             if (Step+stepdice<=GamePlayManager.Instance.TotalCross)
             {
                 if (stepdice > 0 && (Step + stepdice) <= GamePlayManager.Instance.TotalCross)
@@ -95,6 +104,9 @@ public class PiecesBase : MonoBehaviour
                     EndMoving();
                     return;
                 }
+                Vector3 moveDirection = this.transform.position - transform.position;
+                Quaternion newRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+                this.transform.rotation = Quaternion.Lerp(this.transform.rotation, newRotation, 0.1f);
                 this.transform.position = Vector3.MoveTowards(this.transform.position, GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[CurrentPosition].transform.position, 0.1f);
             
             }
@@ -230,6 +242,8 @@ public class PiecesBase : MonoBehaviour
     }
     public void EndMoving()
     {
+        playanimationrun = false;
+        Horse.GetComponent<Animator>().Play("Idle");
         MangerUIScene4.Instance.infoText.text = "Kết thúc lượt!\nLắc xúc xắc";
         GamePlayManager.Instance.NextTurn();
     }
