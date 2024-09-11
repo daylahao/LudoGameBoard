@@ -20,7 +20,7 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
     {
         playerQuantity = GameManager.Instance.PlayQuantity;
    
-        playerQuantity = 4;
+        //playerQuantity = 4;
         levelConfig = GameManager.Instance.GetConfig(playerQuantity);
         TotalCross = levelConfig.TotalCross;
         Map  = Instantiate(levelConfig.Map,P_SpawnMap.transform);

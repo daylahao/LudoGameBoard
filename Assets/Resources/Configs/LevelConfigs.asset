@@ -53,7 +53,7 @@ MonoBehaviour:
       P_Start: 28
   - PlayerQuantity: 5
     ChessPieceCount: 4
-    Map: {fileID: 2388088779489556897, guid: 5cfb2c15d036bab4d93a9e43c9bda173, type: 3}
+    Map: {fileID: 3551401749834744774, guid: 5881b337e22ab514d911a7e888ecb2df, type: 3}
     TotalCross: 69
     Position:
     - sprite: {fileID: 21300000, guid: 21a4992669756e74d8b00f7c492b430a, type: 3}
