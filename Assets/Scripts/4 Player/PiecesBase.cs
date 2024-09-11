@@ -1,12 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
-using static UnityEngine.RuleTile.TilingRuleOutput;
+﻿using UnityEngine;
 
 public class PiecesBase : MonoBehaviour
 {
@@ -15,7 +7,7 @@ public class PiecesBase : MonoBehaviour
     public namePieces Name;
     public int Step;
     public int CurrentPosition;
-    public bool IsOut=true;
+    public bool IsOut = true;
     public bool IsMoving = false;
     public int stepdice;
     public Animator animator;
@@ -29,7 +21,7 @@ public class PiecesBase : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log(this.gameObject.name);
-        if(GamePlayManager.Instance.turnCurrent == Name)
+        if (GamePlayManager.Instance.turnCurrent == Name)
         {
             stepdice = GamePlayManager.Instance.dice.GetDiceValue();
             if (stepdice != 0)
@@ -48,13 +40,19 @@ public class PiecesBase : MonoBehaviour
     {
         if (IsMoving)
         {
-            if(!playanimationrun)
+            if (!playanimationrun)
             {
                 Horse.GetComponent<Animator>().Play("Run");
                 playanimationrun = true;
             }
-            if (Step+stepdice<=GamePlayManager.Instance.TotalCross)
+            if (Step + stepdice <= GamePlayManager.Instance.TotalCross)
             {
+                Vector2 moveDirection = GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position - this.transform.position;
+                if (moveDirection != Vector2.zero)
+                {
+                    Quaternion newRotation = Quaternion.LookRotation(moveDirection);
+                    Horse.transform.rotation = Quaternion.Slerp(Horse.transform.rotation, newRotation, 0.5f);
+                }
                 if (stepdice > 0 && (Step + stepdice) <= GamePlayManager.Instance.TotalCross)
                 {
                     if (this.transform.position == GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position)
@@ -81,14 +79,14 @@ public class PiecesBase : MonoBehaviour
             }
             else
             {
-                if (Step== GamePlayManager.Instance.TotalCross)
+                if (Step == GamePlayManager.Instance.TotalCross)
                 {
                     Step++;
                     CurrentPosition = 0;
                     stepdice--;
 
                 }
-                if (stepdice>0 && this.transform.position == GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[CurrentPosition].transform.position)
+                if (stepdice > 0 && this.transform.position == GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[CurrentPosition].transform.position)
                 {
 
                     Step++;
@@ -104,11 +102,8 @@ public class PiecesBase : MonoBehaviour
                     EndMoving();
                     return;
                 }
-                Vector3 moveDirection = this.transform.position - transform.position;
-                Quaternion newRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-                this.transform.rotation = Quaternion.Lerp(this.transform.rotation, newRotation, 0.1f);
                 this.transform.position = Vector3.MoveTowards(this.transform.position, GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[CurrentPosition].transform.position, 0.1f);
-            
+
             }
             animator.Play("Run");
         }
@@ -117,13 +112,14 @@ public class PiecesBase : MonoBehaviour
     {
         if (IsOut && (step_ == 1 || step_ == 6))
         {
-            if (GamePlayManager.Instance.mapLevel.Crosses[GamePlayManager.Instance.levelConfig.Position[GamePlayManager.Instance.turnTemp].P_Start].GetComponent<CrossBase>().GetName()==Name)
+            if (GamePlayManager.Instance.mapLevel.Crosses[GamePlayManager.Instance.levelConfig.Position[GamePlayManager.Instance.turnTemp].P_Start].GetComponent<CrossBase>().GetName() == Name)
             {
                 MangerUIScene4.Instance.infoText.text = "Xúc xắc 1 hoặc 6\nmới được ra quân";
                 //Debug.Log("Khoong the ra quan");
                 return;
             }
-            else{
+            else
+            {
                 CurrentPosition = GamePlayManager.Instance.levelConfig.Position[GamePlayManager.Instance.turnTemp].P_Start;
                 this.transform.transform.position = GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position;
                 GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].GetComponent<CrossBase>().SetPieces(this);
@@ -131,16 +127,16 @@ public class PiecesBase : MonoBehaviour
                 IsMoving = false;
                 Step = 0;
                 EndMoving();
-                return; 
+                return;
             }
         }
-        else if(!IsOut)
+        else if (!IsOut)
         {
-                bool CanMove = CheckCanMove();
-                if (CanMove == true)
-                {
+            bool CanMove = CheckCanMove();
+            if (CanMove == true)
+            {
                 Debug.Log("Co the di");
-                if (Step<=GamePlayManager.Instance.TotalCross)
+                if (Step <= GamePlayManager.Instance.TotalCross)
                 {
                     GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].GetComponent<CrossBase>().ClearPieces();
                 }
@@ -148,14 +144,14 @@ public class PiecesBase : MonoBehaviour
                 {
                     GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[CurrentPosition].ClearPieces();
                 }
-                    IsMoving = true;
-                }
-                else
-                {
-                    //Debug.Log("Khong the di qua");
-                    IsMoving = false;
-                    return;
-                }
+                IsMoving = true;
+            }
+            else
+            {
+                //Debug.Log("Khong the di qua");
+                IsMoving = false;
+                return;
+            }
         }
     }
     public bool CheckCanMove()
@@ -173,7 +169,7 @@ public class PiecesBase : MonoBehaviour
             }
             return false;
         }
-        if (!IsOut && Step + stepdice <=GamePlayManager.Instance.TotalCross)
+        if (!IsOut && Step + stepdice <= GamePlayManager.Instance.TotalCross)
         {
             for (int i = CurrentPosition + 1; i <= CurrentPosition + stepdice; i++)
             {
@@ -181,7 +177,7 @@ public class PiecesBase : MonoBehaviour
                 if (i > GamePlayManager.Instance.TotalCross)
                 {
                     temp = i - (GamePlayManager.Instance.TotalCross + 1);
-                    
+
                 }
                 if (i < (CurrentPosition + stepdice) && GamePlayManager.Instance.mapLevel.Crosses[temp].GetComponent<CrossBase>().GetName() != namePieces.None)
                 {
@@ -195,37 +191,49 @@ public class PiecesBase : MonoBehaviour
             }
             return true;
 
-        }else//Lên chuồng
-        if (!IsOut && (Step + stepdice) > GamePlayManager.Instance.TotalCross && Step>=GamePlayManager.Instance.TotalCross)
+        }
+        else//Lên chuồng
+        if (!IsOut && (Step + stepdice) > GamePlayManager.Instance.TotalCross && Step >= GamePlayManager.Instance.TotalCross)
         {
-            if ((Step + stepdice) - GamePlayManager.Instance.TotalCross <=GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses.Count)
+            if (Step == GamePlayManager.Instance.TotalCross)
             {
-                int temp = (Step + stepdice) - GamePlayManager.Instance.TotalCross;
-                int temp1 = Step - GamePlayManager.Instance.TotalCross;
-                if(Step>GamePlayManager.Instance.TotalCross)
+                int temp = (Step + stepdice) - GamePlayManager.Instance.TotalCross; //Số bước cần đi trong chuồng  3
+                int temp1 = Step - GamePlayManager.Instance.TotalCross; //Số bước đã đi trong chuồng ở ngoài chuồng bước vô   2
+                for (int i = temp1; i < temp; i++)
                 {
-                    temp1 +=1;
-                }
-                for (int i = temp1; i <temp; i++)
-                {
-                   
+
                     if (GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[i].GetName() != namePieces.None)
                     {
                         Debug.Log(GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[i].GetName());
-                        Debug.Log("Khong the di qua trong chuong");
+                        Debug.Log("Khong the di vo trong chuong");
                         return false;
                     }
                 }
-                Debug.Log("Co the di qua trong chuong");
                 return true;
+            }
+            else if (Step > GamePlayManager.Instance.TotalCross && Step - GamePlayManager.Instance.TotalCross<GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses.Count)
+            {
+                if (stepdice == Step - GamePlayManager.Instance.TotalCross + 1)
+                {
+                    if (GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[Step - GamePlayManager.Instance.TotalCross].GetName() != namePieces.None)
+                    {
+                        Debug.Log("Khong the di qua trong chuong");
+                        return false;
+                    }
+                    Debug.Log("Co the di qua trong chuong");
+                    stepdice = 1; return true;
+                }
+                Debug.Log("Khong the di qua trong chuong");
+                return false;
             }
             else
             {
                 return false;
             }
         }
-        else if(!IsOut && (Step + stepdice) > GamePlayManager.Instance.TotalCross && Step < GamePlayManager.Instance.TotalCross)
+        else if (!IsOut && (Step + stepdice) > GamePlayManager.Instance.TotalCross && Step < GamePlayManager.Instance.TotalCross) //không đứng ở ô lên chuồng
         {
+            Debug.Log("Không đứng ở ô lên chuồng");
             return false;
         }
         return true;
@@ -244,6 +252,7 @@ public class PiecesBase : MonoBehaviour
     {
         playanimationrun = false;
         Horse.GetComponent<Animator>().Play("Idle");
+        Horse.transform.rotation = Quaternion.Euler(0, 180, 0);
         MangerUIScene4.Instance.infoText.text = "Kết thúc lượt!\nLắc xúc xắc";
         GamePlayManager.Instance.NextTurn();
     }

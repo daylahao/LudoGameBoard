@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Dice4 : MonoBehaviour
 {
     public int diceValue;
+    public int magic;
     // Start is called before the first frame update
     private SpriteRenderer diceRenderer;
     private Sprite[] diceFaces;
@@ -31,25 +32,38 @@ public class Dice4 : MonoBehaviour
 
     private IEnumerator RollDice()
     {
-        int randomDiceFace = 0;
-        for (int i = 0; i <= 20; i++)
+        if (magic != 0)
         {
-            randomDiceFace = Random.Range(0, diceFaces.Length);
-            diceRenderer.sprite = diceFaces[randomDiceFace];
-            yield return new WaitForSeconds(0.05f);
+            //diceRenderer.sprite = diceFaces[magic-1];
+            diceValue = magic;
+            if (diceValue != 6 || diceValue != 1)
+            {
+                GamePlayManager.Instance.CheckPieces();
+            }
+            yield break;
         }
-
-        // Đảm bảo giá trị cuối cùng là từ 1 đến 6
-        int diceValue_ = randomDiceFace + 1;
-        diceRenderer.sprite = diceFaces[randomDiceFace]; // Cập nhật hình ảnh cuối cùng của xúc xắc
-
-        //Debug.Log("Xúc xắc hiện tại: " + diceValue_);
-        //gameManager2.SetDiceResult(diceValue);
-        diceValue = diceValue_;
-        rollButton.interactable = false; // Lock button after rolling
-        if(diceValue != 6||diceValue!=1)
+        else
         {
-            GamePlayManager.Instance.CheckPieces();
+            int randomDiceFace = 0;
+            for (int i = 0; i <= 20; i++)
+            {
+                randomDiceFace = Random.Range(0, diceFaces.Length);
+                diceRenderer.sprite = diceFaces[randomDiceFace];
+                yield return new WaitForSeconds(0.05f);
+            }
+
+            // Đảm bảo giá trị cuối cùng là từ 1 đến 6
+            int diceValue_ = randomDiceFace + 1;
+            diceRenderer.sprite = diceFaces[randomDiceFace]; // Cập nhật hình ảnh cuối cùng của xúc xắc
+
+            //Debug.Log("Xúc xắc hiện tại: " + diceValue_);
+            //gameManager2.SetDiceResult(diceValue);
+            diceValue = diceValue_;
+            rollButton.interactable = false; // Lock button after rolling
+            if (diceValue != 6 || diceValue != 1)
+            {
+                GamePlayManager.Instance.CheckPieces();
+            }
         }
     }
 

@@ -60,11 +60,14 @@ public class HouseCross
     public bool CheckWin()
     {
         int count  = 0;
-        for (int i = 0; i < Crosses.Count; i++)
+        for (int i = Crosses.Count; i > Crosses.Count-GamePlayManager.Instance.levelConfig.ChessPieceCount; i--)
         {
-            if(Crosses[i].GetName()!=namePieces.None)
+
+            if(Crosses[i-1].GetName()!=namePieces.None)
             {
                 count++;
+                if(count == GamePlayManager.Instance.levelConfig.ChessPieceCount)
+                    break;
             }
         }
         if(count == GamePlayManager.Instance.levelConfig.ChessPieceCount)

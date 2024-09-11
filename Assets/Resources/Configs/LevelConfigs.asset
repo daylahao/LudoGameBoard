@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelConfigs
   _Level:
   - PlayerQuantity: 4
-    ChessPieceCount: 4
+    ChessPieceCount: 1
     Map: {fileID: 2114492921240309173, guid: 7b805540f3b6ecb4b9831bfeecbe2518, type: 3}
     TotalCross: 55
     Position:
