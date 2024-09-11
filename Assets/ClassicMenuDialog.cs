@@ -27,4 +27,9 @@ public class ClassicMenuDialog : BaseDialog
     {
         GameManager.Instance.LoadLevel(5);
     }
+    public void BackMainHome()
+    {
+        GameManager.Instance.OnShowDialog<MainMenuDialog>("Dialogs/MainMenuDialog");
+        ClickCloseDialog();
+    }    
 }

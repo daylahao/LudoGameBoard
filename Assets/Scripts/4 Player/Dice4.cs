@@ -14,6 +14,7 @@ public class Dice4 : MonoBehaviour
         diceRenderer = GetComponent<SpriteRenderer>();
         diceFaces = Resources.LoadAll<Sprite>("Dice/");
         rollButton.onClick.AddListener(OnRollDice);
+        rollButton.GetComponent<Animator>().Play("ButtonActive");
     }
     public int GetDiceValue()
     {
@@ -24,6 +25,8 @@ public class Dice4 : MonoBehaviour
         Debug.Log("Roll Dice");
         if (!rollButton.interactable) return;
         StartCoroutine(RollDice());
+        rollButton.GetComponent<Animator>().Play("IDLE");
+        rollButton.interactable = false;
     }
 
     private IEnumerator RollDice()
@@ -54,5 +57,6 @@ public class Dice4 : MonoBehaviour
     {
         diceValue = 0;
         rollButton.interactable = true; // Enable button for next roll
+        rollButton.GetComponent<Animator>().Play("ButtonActive");
     }
 }
