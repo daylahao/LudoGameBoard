@@ -17,6 +17,8 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
     private GameObject Map;
     public GameObject P_SpawnMap;
     public Transform P_Spawndialog;
+    public List<int> Turnplayer;
+    public List<int> BOT;
     // Start is called before the first frame update
     public void OnclickPause()
     {
@@ -46,11 +48,15 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
         turnTemp = 0;
         turnCurrent = (namePieces)levelConfig.Position[turnTemp].name;
         MangerUIScene4.Instance.ChangeThumb();
+        
     }
     // Update is called once per frame
     void Update()
     {
-
+        if (!SoundManager.Instance._fxMusicBGBase._sourcePlaySound.isPlaying)
+        {
+            SoundManager.Instance.PlayLoopBGMusic(SoundName.Music.ToString());
+        }
     }
     [Header("Khoảng cách giữa các quân cờ")]
     public float radiusSpawnPieces;
@@ -102,7 +108,8 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
     }
     public void HandleWinGame()
     {
-
+        SoundManager.Instance.PlayBGMusic(SoundName.WinMusic.ToString());
+        GameManager.Instance.OnShowDialog<WinGameDialog>("Dialogs/WinGameDialog");
         Debug.Log("Người chơi " + turnCurrent + " thắng");
     }
     public void NextTurn()

@@ -10,7 +10,11 @@ public class SceneHome : MonoSingleton<SceneHome>
     {
         GameManager.Instance._popUpContainer = PositionDialog;
         GameManager.Instance.OnShowDialog<MainMenuDialog>("Dialogs/MainMenuDialog");
-        SoundManager.Instance.PlayLoopBGMusic(SoundName.Music.ToString());
+        if (!SoundManager.Instance._fxMusicBGBase._sourcePlaySound.isPlaying)
+        {
+            SoundManager.Instance.PlayLoopBGMusic(SoundName.Music.ToString());
+        }
+        //SoundManager.Instance.PlayLoopBGMusic(SoundName.Music.ToString());
     }
 
     // Update is called once per frame
