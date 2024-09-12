@@ -50,6 +50,7 @@ public class PiecesBase : MonoBehaviour
                 Vector2 moveDirection = GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position - this.transform.position;
                 if (moveDirection != Vector2.zero)
                 {
+          
                     Quaternion newRotation = Quaternion.LookRotation(moveDirection);
                     Horse.transform.rotation = Quaternion.Slerp(Horse.transform.rotation, newRotation, 0.5f);
                 }
@@ -57,6 +58,7 @@ public class PiecesBase : MonoBehaviour
                 {
                     if (this.transform.position == GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position)
                     {
+                        SoundManager.Instance.PlayFx(SoundName.PicesMove.ToString());
                         Step++;
                         stepdice--;
                         CurrentPosition++;
@@ -81,6 +83,7 @@ public class PiecesBase : MonoBehaviour
             {
                 if (Step == GamePlayManager.Instance.TotalCross)
                 {
+                    SoundManager.Instance.PlayFx(SoundName.PicesMove.ToString());
                     Step++;
                     CurrentPosition = 0;
                     stepdice--;
@@ -120,6 +123,7 @@ public class PiecesBase : MonoBehaviour
             }
             else
             {
+                SoundManager.Instance.PlayFx(SoundName.PicesHappy.ToString());
                 CurrentPosition = GamePlayManager.Instance.levelConfig.Position[GamePlayManager.Instance.turnTemp].P_Start;
                 this.transform.transform.position = GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].transform.position;
                 GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].GetComponent<CrossBase>().SetPieces(this);
@@ -241,6 +245,7 @@ public class PiecesBase : MonoBehaviour
 
     public void Back()
     {
+        SoundManager.Instance.PlayFx(SoundName.PicesDie.ToString());
         this.transform.position = DefaultPosition;
         Step = 0;
         CurrentPosition = 0;

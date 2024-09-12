@@ -23,38 +23,31 @@ public class Dice4 : MonoBehaviour
     }
     private void OnRollDice()
     {
+        SoundManager.Instance.PlayLoopFx(SoundName.DiceRoll.ToString());
         Debug.Log("Roll Dice");
         if (!rollButton.interactable) return;
         StartCoroutine(RollDice());
         rollButton.GetComponent<Animator>().Play("IDLE");
         rollButton.interactable = false;
     }
-
     private IEnumerator RollDice()
     {
+        int randomDiceFace = 0;
+        for (int i = 0; i <= 20; i++)
+        {
+            randomDiceFace = Random.Range(0, diceFaces.Length);
+            diceRenderer.sprite = diceFaces[randomDiceFace];
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        // Đảm bảo giá trị cuối cùng là từ 1 đến 6
+        int diceValue_ = randomDiceFace + 1;
+
+        diceRenderer.sprite = diceFaces[randomDiceFace]; // Cập nhật hình ảnh cuối cùng của xúc xắc
         if (magic != 0)
         {
-            //diceRenderer.sprite = diceFaces[magic-1];
-            diceValue = magic;
-            if (diceValue != 6 || diceValue != 1)
-            {
-                GamePlayManager.Instance.CheckPieces();
-            }
-            yield break;
+            diceValue_ = magic;
         }
-        else
-        {
-            int randomDiceFace = 0;
-            for (int i = 0; i <= 20; i++)
-            {
-                randomDiceFace = Random.Range(0, diceFaces.Length);
-                diceRenderer.sprite = diceFaces[randomDiceFace];
-                yield return new WaitForSeconds(0.05f);
-            }
-
-            // Đảm bảo giá trị cuối cùng là từ 1 đến 6
-            int diceValue_ = randomDiceFace + 1;
-            diceRenderer.sprite = diceFaces[randomDiceFace]; // Cập nhật hình ảnh cuối cùng của xúc xắc
 
             //Debug.Log("Xúc xắc hiện tại: " + diceValue_);
             //gameManager2.SetDiceResult(diceValue);
@@ -64,7 +57,7 @@ public class Dice4 : MonoBehaviour
             {
                 GamePlayManager.Instance.CheckPieces();
             }
-        }
+        SoundManager.Instance.StopFx();
     }
 
     public void ResetDice()

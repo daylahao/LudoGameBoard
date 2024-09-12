@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    
+    public bool isGamePause;
     public List<LevelConfig> levelConfigs;
     public int PlayQuantity;
     public T GetResourceFile<T>(string path) where T : Object
@@ -39,7 +39,10 @@ public class GameManager : MonoSingleton<GameManager>
             Application.Quit();
         }
         else{
-            SceneHome.Instance.RunScene();
+            
+            isGamePause  = false;
+            SoundManager.Instance.OnInit(true, true);
+            SceneManager.LoadScene(1);
         }
         //else
         //{
@@ -60,11 +63,31 @@ public class GameManager : MonoSingleton<GameManager>
     public void LoadLevel(int level)
     {
         PlayQuantity = level; 
+        SceneManager.LoadScene(2);
+    }
+    public void PauseGame()
+    {
+        BaseDialog dialog = OnShowDialog<PauseMenuDialog>("Dialogs/PauseMenuDialog");
+        isGamePause = true;
+        Time.timeScale = 0;     
+    }
+    public void ResumeGame()
+    {
+        isGamePause = false;
+        Time.timeScale = 1;
+    }
+    public void LoadMainMenu()
+    {
+        ResumeGame();
         SceneManager.LoadScene(1);
+    }
+    public void RestartGame()
+    {
+        ResumeGame();
+        SceneManager.LoadScene(2);
     }
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

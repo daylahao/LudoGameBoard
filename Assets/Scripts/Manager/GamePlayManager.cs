@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class GamePlayManager : MonoSingleton<GamePlayManager>
 {
@@ -15,11 +16,16 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
     public MapLevel mapLevel;
     private GameObject Map;
     public GameObject P_SpawnMap;
+    public Transform P_Spawndialog;
     // Start is called before the first frame update
+    public void OnclickPause()
+    {
+        GameManager.Instance.PauseGame();
+    }
     void Start()
     {
+        GameManager.Instance._popUpContainer = P_Spawndialog;
         playerQuantity = GameManager.Instance.PlayQuantity;
-   
         //playerQuantity = 4;
         levelConfig = GameManager.Instance.GetConfig(playerQuantity);
         TotalCross = levelConfig.TotalCross;

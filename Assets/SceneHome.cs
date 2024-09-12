@@ -8,14 +8,11 @@ public class SceneHome : MonoSingleton<SceneHome>
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-  
-    public void RunScene()
-    {
         GameManager.Instance._popUpContainer = PositionDialog;
         GameManager.Instance.OnShowDialog<MainMenuDialog>("Dialogs/MainMenuDialog");
+        SoundManager.Instance.PlayLoopBGMusic(SoundName.Music.ToString());
     }
+
     // Update is called once per frame
     void Update()
     {

@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class BaseDialog : MonoBehaviour
 {
     public Animator _animator;
-
     protected object _data;
     protected UnityAction callbackShow;
 
@@ -18,6 +17,7 @@ public class BaseDialog : MonoBehaviour
     protected virtual void OnValidate()
     {
         this._animator = this.GetComponent<Animator>();
+        _animator.updateMode = AnimatorUpdateMode.UnscaledTime;
     }
 #endif
 
@@ -44,7 +44,7 @@ public class BaseDialog : MonoBehaviour
 
     public virtual void ClickCloseDialog()
     {
-
+        SoundManager.Instance.PlayFx(SoundName.ButtonFX.ToString());
         OnHide();
     }
     public virtual void OnHide()
