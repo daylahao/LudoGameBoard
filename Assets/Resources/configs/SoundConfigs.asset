@@ -15,3 +15,13 @@ MonoBehaviour:
   _Sound:
   - _SoundName: 1
     Name: {fileID: 8300000, guid: 179e0f658e528df4599b666169677a19, type: 3}
+  - _SoundName: 0
+    Name: {fileID: 8300000, guid: a9a34d6615d9d3e49a21aeb861b1e8a6, type: 3}
+  - _SoundName: 2
+    Name: {fileID: 8300000, guid: 872ddf03ce30d67428d359526d27d30a, type: 3}
+  - _SoundName: 3
+    Name: {fileID: 8300000, guid: 848b541cdf15ffc4db7b12352f1c48f2, type: 3}
+  - _SoundName: 5
+    Name: {fileID: 8300000, guid: 720e69d8403ba444fa40bd7e1acb4585, type: 3}
+  - _SoundName: 4
+    Name: {fileID: 8300000, guid: d7a2bf140caedf046a3a525ab62a127a, type: 3}
