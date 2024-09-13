@@ -76,3 +76,20 @@ MonoBehaviour:
       Prefab: {fileID: 5938430183287567890, guid: eba7c8c11d285404f8b032b199d93220, type: 3}
       name: 3
       P_Start: 56
+  - PlayerQuantity: 3
+    ChessPieceCount: 1
+    Map: {fileID: 2388088779489556897, guid: 5cfb2c15d036bab4d93a9e43c9bda173, type: 3}
+    TotalCross: 41
+    Position:
+    - sprite: {fileID: 21300000, guid: 21a4992669756e74d8b00f7c492b430a, type: 3}
+      Prefab: {fileID: 1040768787829449885, guid: 5e2e83cbcc690634eae5ffefac0f1822, type: 3}
+      name: 0
+      P_Start: 0
+    - sprite: {fileID: 21300000, guid: 3463ccddf8d1ecd408ea0bbb492be0e3, type: 3}
+      Prefab: {fileID: 3668999007244062361, guid: 93f0dfb06a6c17544b37fd6fd2d4547b, type: 3}
+      name: 1
+      P_Start: 14
+    - sprite: {fileID: 21300000, guid: 929143432c0e6c942b12846beed579ca, type: 3}
+      Prefab: {fileID: 5938430183287567890, guid: eba7c8c11d285404f8b032b199d93220, type: 3}
+      name: 3
+      P_Start: 28

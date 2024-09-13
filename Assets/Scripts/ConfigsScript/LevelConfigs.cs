@@ -42,6 +42,17 @@ public class LevelConfig
     public GameObject Map;
     public int TotalCross;
     public List<PiecesConfig> Position;
+    public int GetChessPieceCount()
+    {
+        if (GameManager.Instance.isEvent)
+        {
+            return 1;
+        }
+        else
+        {
+            return ChessPieceCount;
+        }
+    }
 }
 [System.Serializable]
 public enum namePieces{

@@ -26,8 +26,14 @@ public class MainMenuDialog : BaseDialog
     }
     public void OnClickEvent()
     {
+        GameManager.Instance.OnShowDialog<EventMenuDialog>("Dialogs/EventLevelDialog");
+        this.ClickCloseDialog();
+    }
+    public void OnClickRole()
+    {
 
-       GameManager.Instance.OnShowDialog<BaseDialog>("Dialogs/ComingDialog");
+       GameManager.Instance.OnShowDialog<BaseDialog>("Dialogs/RoleMenuDialog");
+        //this.ClickCloseDialog();
     }
     public void OnClickExit()
     {

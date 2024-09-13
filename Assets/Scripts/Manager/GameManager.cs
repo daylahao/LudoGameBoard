@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoSingleton<GameManager>
 {
     public bool isGamePause;
+    public bool isEvent;
     public List<LevelConfig> levelConfigs;
     public int PlayQuantity;
     public int PlayerReal;
@@ -52,6 +53,10 @@ public class GameManager : MonoSingleton<GameManager>
     }
     public LevelConfig GetConfig(int level)
     {
+        if(level ==0)
+        {
+            return levelConfigs[3];
+        }
         foreach (LevelConfig item in levelConfigs)
         {
             if (item.PlayerQuantity == level)

@@ -25,6 +25,7 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
     }
     void Start()
     {
+        Debug.Log(GameManager.Instance.isEvent);
         GameManager.Instance._popUpContainer = P_Spawndialog;
         playerQuantity = GameManager.Instance.PlayQuantity;
         //playerQuantity = 4;
@@ -103,11 +104,11 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
     {
         for (int i = 0; i < levelConfig.PlayerQuantity; i++)
         {
-            for (int j = 1; j <= levelConfig.ChessPieceCount; j++)
+            for (int j = 1; j <= levelConfig.GetChessPieceCount(); j++)
             {
                 GameObject pointPrefab = levelConfig.Position[i].Prefab;
                 Vector2 centerPoint = mapLevel.FindPointName(levelConfig.Position[i].name).position;
-                float angle = j * (360f / levelConfig.ChessPieceCount); // Chia đều góc 360 độ
+                float angle = j * (360f / levelConfig.GetChessPieceCount()); // Chia đều góc 360 độ
                 Vector2 offset = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * radiusSpawnPieces;
                 Vector2 spawnPosition = centerPoint + offset;
                 GameObject piecesTemp = Instantiate(pointPrefab, spawnPosition, Quaternion.identity);

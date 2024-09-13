@@ -10,7 +10,7 @@ public class SceneHome : MonoSingleton<SceneHome>
     {
         GameManager.Instance._popUpContainer = PositionDialog;
         GameManager.Instance.OnShowDialog<MainMenuDialog>("Dialogs/MainMenuDialog");
-        if (!SoundManager.Instance._fxMusicBGBase._sourcePlaySound.isPlaying)
+        if (!SoundManager.Instance._fxMusicBGBase._sourcePlaySound.isPlaying|| SoundManager.Instance._fxMusicBGBase.name != SoundConfigs.Instance.GetAudioByName(SoundName.Music.ToString()).name)
         {
             SoundManager.Instance.PlayLoopBGMusic(SoundName.Music.ToString());
         }
