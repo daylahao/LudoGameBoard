@@ -58,4 +58,8 @@ public class BaseDialog : MonoBehaviour
         this.gameObject.SetActive(false);
        
     }
+    public void StartYourTurn()
+    {
+         SoundManager.Instance.PlayFx(SoundName.YourTurn.ToString());
+    }
 }

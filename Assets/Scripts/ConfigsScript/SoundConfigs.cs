@@ -72,4 +72,5 @@ public enum SoundName
     DiceRoll = 5,
     WinMusic = 6,
     LoseMusic = 7,
+    YourTurn = 8,
 }

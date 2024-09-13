@@ -18,8 +18,19 @@ public class PiecesBase : MonoBehaviour
         IsMoving = false;
         IsOut = true;
     }
+    public void ClickPieces()
+    {
+        HandleClick();
+    }
     void OnMouseDown()
     {
+        if (GamePlayManager.Instance.Turnplayer.Contains(GamePlayManager.Instance.turnTemp))
+        {
+               HandleClick();
+        
+        }
+    }
+    void HandleClick() {
         Debug.Log(this.gameObject.name);
         if (GamePlayManager.Instance.turnCurrent == Name)
         {

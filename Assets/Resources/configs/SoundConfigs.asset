@@ -27,3 +27,5 @@ MonoBehaviour:
     Name: {fileID: 8300000, guid: d7a2bf140caedf046a3a525ab62a127a, type: 3}
   - _SoundName: 6
     Name: {fileID: 8300000, guid: 893355814e8aa5143a61d5aab67962f5, type: 3}
+  - _SoundName: 8
+    Name: {fileID: 8300000, guid: 71b0a5ad4988c1448b0555ff66f9c7e8, type: 3}

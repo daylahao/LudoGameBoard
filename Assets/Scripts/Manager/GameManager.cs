@@ -8,6 +8,7 @@ public class GameManager : MonoSingleton<GameManager>
     public bool isGamePause;
     public List<LevelConfig> levelConfigs;
     public int PlayQuantity;
+    public int PlayerReal;
     public T GetResourceFile<T>(string path) where T : Object
     {
         return Resources.Load<T>(path) as T;
@@ -60,8 +61,9 @@ public class GameManager : MonoSingleton<GameManager>
         }
         return null;
     }
-    public void LoadLevel(int level)
+    public void LoadLevel(int level,int player)
     {
+        PlayerReal = player;
         PlayQuantity = level; 
         SceneManager.LoadScene(2);
     }

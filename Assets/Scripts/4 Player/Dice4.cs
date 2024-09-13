@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 public class Dice4 : MonoBehaviour
@@ -21,15 +22,15 @@ public class Dice4 : MonoBehaviour
     {
         return diceValue;
     }
-    private void OnRollDice()
+    public void OnRollDice()
     {
         SoundManager.Instance.PlayLoopFx(SoundName.DiceRoll.ToString());
-        Debug.Log("Roll Dice");
-        if (!rollButton.interactable) return;
+        //Debug.Log("Roll Dice");
         StartCoroutine(RollDice());
         rollButton.GetComponent<Animator>().Play("IDLE");
         rollButton.interactable = false;
     }
+
     private IEnumerator RollDice()
     {
         int randomDiceFace = 0;
@@ -44,6 +45,7 @@ public class Dice4 : MonoBehaviour
         int diceValue_ = randomDiceFace + 1;
 
         diceRenderer.sprite = diceFaces[randomDiceFace]; // Cập nhật hình ảnh cuối cùng của xúc xắc
+        SoundManager.Instance.StopFx();
         if (magic != 0)
         {
             diceValue_ = magic;
@@ -53,17 +55,26 @@ public class Dice4 : MonoBehaviour
             //gameManager2.SetDiceResult(diceValue);
             diceValue = diceValue_;
             rollButton.interactable = false; // Lock button after rolling
-            if (diceValue != 6 || diceValue != 1)
-            {
+         //if (diceValue != 6 || diceValue != 1)
+         //   {
                 GamePlayManager.Instance.CheckPieces();
-            }
-        SoundManager.Instance.StopFx();
+            //}
     }
-
     public void ResetDice()
     {
         diceValue = 0;
-        rollButton.interactable = true; // Enable button for next roll
-        rollButton.GetComponent<Animator>().Play("ButtonActive");
+            rollButton.interactable = true; // Enable button for next roll
+            rollButton.GetComponent<Animator>().Play("ButtonActive");
+        if (!GamePlayManager.Instance.Turnplayer.Contains(GamePlayManager.Instance.turnTemp))
+        {
+            rollButton.interactable = false; // Enable button for next roll
+            StartCoroutine(DelayedExecution());
+        }
+    }
+    private IEnumerator DelayedExecution()
+    {
+        Debug.Log("Start of coroutine");
+        yield return new WaitForSeconds(0.5f);
+        OnRollDice();
     }
 }

@@ -29,4 +29,8 @@ public class MainMenuDialog : BaseDialog
 
        GameManager.Instance.OnShowDialog<BaseDialog>("Dialogs/ComingDialog");
     }
+    public void OnClickExit()
+    {
+        Application.Quit();
+    }
 }
