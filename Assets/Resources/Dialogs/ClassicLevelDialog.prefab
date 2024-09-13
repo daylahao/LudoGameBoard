@@ -213,8 +213,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -347,8 +347,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1214,6 +1214,8 @@ MonoBehaviour:
   PlayerQuantityMap: 0
   textPlayerQuantity: {fileID: 1653868833596934740}
   textThumb: {fileID: 1655524304167328328}
+  textPlayerlabel: {fileID: 7045756060113375484}
+  Maplabel: {fileID: 8278413014157171211}
   BtnDown: {fileID: 327888428348386315}
   BtnUp: {fileID: 6427419621077764643}
   _animator: {fileID: 0}
@@ -1565,6 +1567,8 @@ MonoBehaviour:
   PlayerQuantityMap: 0
   textPlayerQuantity: {fileID: 4028403648006616782}
   textThumb: {fileID: 1375694036942413134}
+  textPlayerlabel: {fileID: 8157109770422479011}
+  Maplabel: {fileID: 4538424611366019911}
   BtnDown: {fileID: 1717005544365788778}
   BtnUp: {fileID: 6940525461205657285}
   _animator: {fileID: 0}
@@ -2196,7 +2200,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 4563346154738386975}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2314,6 +2318,8 @@ MonoBehaviour:
   PlayerQuantityMap: 0
   textPlayerQuantity: {fileID: 9136846379851599133}
   textThumb: {fileID: 4891935372998334501}
+  textPlayerlabel: {fileID: 5336676749771101805}
+  Maplabel: {fileID: 816953432415555875}
   BtnDown: {fileID: 7102185490165630553}
   BtnUp: {fileID: 5253550268563372549}
   _animator: {fileID: 0}
@@ -2484,8 +2490,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2943,8 +2949,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3466,8 +3472,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4301,8 +4307,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4435,8 +4441,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4942,8 +4948,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5493,8 +5499,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

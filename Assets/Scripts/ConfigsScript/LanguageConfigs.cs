@@ -70,15 +70,36 @@ public class LanguageConfig
     public string WinTitle;
     [Header("lắc xúc xắc")]
     public string RollText;
+    [Header("Tạm Dừng")]
+    public string PauseText;
     [Header("Chơi lại")]
     public string RestartText;
     [Header("Thoát")]
     public string ExitText;
     [Header("Tiếp tục chơi")]
     public string ResumeText;
+    [Header("Đóng")]
+    public string CloseText;
+    [Header("Quay lại")]
+    public string BackText;
+    [Header("SFXLABEL")]
+    public string SFXLabel;
+    [Header("BGMLABEL")]
+    public string BGMLabel;
+    [Header("Người chơi")]
+    public string Playerlabel;
+    [Header("người")]
+    public string PlayerText;
+    [Header("Máy")]
+    public string BotText;
+    [Header("Chọn ngôn ngữ")]
+    public string ChooseLanguageText;
+    [Header("bản đồ")]
+    public string Maplabel;
 }
 public enum LanguageType
 {
-    Vietnamese,
-    English
+
+    Vietnamese=0,
+    English=1
 }

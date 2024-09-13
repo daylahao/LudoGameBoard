@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+    public LanguageType Language;
     public bool isGamePause;
     public bool isEvent;
     public List<LevelConfig> levelConfigs;
@@ -34,6 +35,7 @@ public class GameManager : MonoSingleton<GameManager>
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+        Language = LanguageType.English;
         levelConfigs = LevelConfigs.Instance.GetConfig();
         if(levelConfigs == null)
         {

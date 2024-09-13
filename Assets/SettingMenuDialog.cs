@@ -9,7 +9,7 @@ public class SettingMenuDialog : BaseDialog
 {
     public TextMeshProUGUI _volumneSFXText;
     public TextMeshProUGUI _volumneBGMText;
-
+    public TextMeshProUGUI Title,SFXLABEL,BGMLABEL,CLOSE;
     private void Update()
     {
         LoadVolumne();
@@ -18,6 +18,11 @@ public class SettingMenuDialog : BaseDialog
     {
         _volumneBGMText.text = (Mathf.Round(SoundManager.Instance._fxMusicBGBase._sourcePlaySound.volume*100)).ToString();
         _volumneSFXText.text =  (Mathf.Round(SoundManager.Instance._fxSoundBase._sourcePlaySound.volume*100)).ToString();
+        Title.text = LanguageConfigs.Instance.GetConfig(GameManager.Instance.Language).SettingText;
+        SFXLABEL.text = LanguageConfigs.Instance.GetConfig(GameManager.Instance.Language).SFXLabel;
+        BGMLABEL.text = LanguageConfigs.Instance.GetConfig(GameManager.Instance.Language).BGMLabel;
+        CLOSE.text = LanguageConfigs.Instance.GetConfig(GameManager.Instance.Language).CloseText;
+
     }
     public void UpVolumneFX()
     {

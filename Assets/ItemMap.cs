@@ -8,18 +8,20 @@ public class ItemMap : MonoBehaviour
 {
     public int mapindex;
     public int PlayerQuantityMap;
-    public TextMeshProUGUI textPlayerQuantity,textThumb;
+    public TextMeshProUGUI textPlayerQuantity, textThumb, textPlayerlabel, Maplabel;
     public Button BtnDown;
     public Button BtnUp;
     public Animator _animator;
     public void UpdateTitle()
     {
         _animator.Play("ScaleUp");
-        textThumb.text = PlayerQuantityMap+" Người \n "+(mapindex-PlayerQuantityMap)+" Máy";
+        textThumb.text = PlayerQuantityMap+" " + LanguageConfigs.Instance.GetConfig(GameManager.Instance.Language).PlayerText +" \n " + (mapindex - PlayerQuantityMap) + " " +LanguageConfigs.Instance.GetConfig(GameManager.Instance.Language).BotText ;
     }
     // Start is called before the first frame update
     void Start()
     {
+        textPlayerlabel.text = LanguageConfigs.Instance.GetConfig(GameManager.Instance.Language).Playerlabel;
+        Maplabel.text = LanguageConfigs.Instance.GetConfig(GameManager.Instance.Language).Maplabel+" "+mapindex;
         PlayerQuantityMap = 1;
         BtnDown.onClick.AddListener(DownPlayer);
         BtnUp.onClick.AddListener(UpPlayer);
