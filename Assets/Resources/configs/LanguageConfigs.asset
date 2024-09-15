@@ -43,9 +43,10 @@ MonoBehaviour:
     WinTitle: "K\u1EBET TH\xDAC"
     RollText: "B\u1EAFt \u0111\u1EA7u tr\xF2 ch\u01A1i\\nL\u1EAFc x\xFAc x\u1EAFc!"
     PauseText: "T\u1EA0M D\u1EEANG"
-    RestartText: "CH\u01A0I L\u1EA0I"
-    ExitText: "THO\xC1T"
-    ResumeText: "TI\u1EBEP T\u1EE4C"
+    RestartText: "Ch\u01A1i l\u1EA1i m\xE0n"
+    IngameSettingText: "C\xE0i \u0111\u1EB7t"
+    ExitText: "Tho\xE1t"
+    ResumeText: "Ti\u1EBFp t\u1EE5c"
     CloseText: "\u0110\xD3NG"
     BackText: "QUAY L\u1EA0I"
     SFXLabel: "HI\u1EC6U \u1EE8NG"
@@ -77,9 +78,10 @@ MonoBehaviour:
     WinTitle: END GAME
     RollText: Game started\nRoll the dice!
     PauseText: PAUSE
-    RestartText: RESTART
-    ExitText: MAIN MENU
-    ResumeText: RESUME
+    RestartText: Restart
+    IngameSettingText: Setting
+    ExitText: Main menu
+    ResumeText: Resume
     CloseText: CLOSE
     BackText: BACK
     SFXLabel: SFX

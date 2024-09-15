@@ -840,6 +840,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 5721992170346739148}
+  Pausetitle: {fileID: 7564583458852596461}
+  ContinueText: {fileID: 8602805796578016574}
+  ResetText: {fileID: 357997314887434459}
+  SettingText: {fileID: 7482385836053935458}
+  Pauseclose: {fileID: 2688255667520271756}
 --- !u!95 &5721992170346739148
 Animator:
   serializedVersion: 5

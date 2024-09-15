@@ -70,10 +70,12 @@ public class LanguageConfig
     public string WinTitle;
     [Header("lắc xúc xắc")]
     public string RollText;
-    [Header("Tạm Dừng")]
+    [Header("TẠM DỪNG")]
     public string PauseText;
     [Header("Chơi lại")]
     public string RestartText;
+    [Header("Cài đặt")]
+    public string IngameSettingText;
     [Header("Thoát")]
     public string ExitText;
     [Header("Tiếp tục chơi")]
