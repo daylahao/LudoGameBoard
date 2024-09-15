@@ -38,12 +38,12 @@ MonoBehaviour:
       ch\u1EC9 c\xF3 th\u1EC3 ti\u1EBFn t\u1EEBng b\u01B0\u1EDBc m\u1ED9t theo \u0111i\u1EC3m
       x\xFAc x\u1EAFc t\u01B0\u01A1ng \u1EE9ng"
     YourTurnText: "\u0110\u1EBFn l\u01B0\u1EE3t c\u1EE7a b\u1EA1n!"
-    WinText: "TH\u1EAENG !!"
+    WinText: " chi\u1EBFn th\u1EAFng!"
     LoseText: 
     WinTitle: "K\u1EBET TH\xDAC"
-    RollText: "B\u1EAFt \u0111\u1EA7u tr\xF2 ch\u01A1i\\nL\u1EAFc x\xFAc x\u1EAFc!"
+    RollText: 
     PauseText: "T\u1EA0M D\u1EEANG"
-    RestartText: "Ch\u01A1i l\u1EA1i m\xE0n"
+    RestartText: "Ch\u01A1i l\u1EA1i"
     IngameSettingText: "C\xE0i \u0111\u1EB7t"
     ExitText: "Tho\xE1t"
     ResumeText: "Ti\u1EBFp t\u1EE5c"
@@ -73,10 +73,10 @@ MonoBehaviour:
       do block each other.\r\n - When on stable, only moving each step by get move
       point as the number marked."
     YourTurnText: Your turn!
-    WinText: WIN !!
+    WinText: ' won!'
     LoseText: 
-    WinTitle: END GAME
-    RollText: Game started\nRoll the dice!
+    WinTitle: GAME END
+    RollText: 
     PauseText: PAUSE
     RestartText: Restart
     IngameSettingText: Setting

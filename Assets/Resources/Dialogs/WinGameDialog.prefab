@@ -1010,6 +1010,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1728613817686744964}
   P_Player: {fileID: 5805241871679100197}
+  endTitle: {fileID: 2016048046061514537}
+  endRestart: {fileID: 9006717080238348332}
   txtScore: {fileID: 2377716666142546983}
 --- !u!95 &1728613817686744964
 Animator:

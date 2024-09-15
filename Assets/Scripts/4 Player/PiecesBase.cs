@@ -269,7 +269,7 @@ public class PiecesBase : MonoBehaviour
         playanimationrun = false;
         Horse.GetComponent<Animator>().Play("Idle");
         Horse.transform.rotation = Quaternion.Euler(0, 180, 0);
-        MangerUIScene4.Instance.infoText.text = LanguageConfigs.Instance.GetConfig(GameManager.Instance.Language).RollText;
+        MangerUIScene4.Instance.infoText.text = "Kết thúc lượt!\nLắc xúc xắc";
         GamePlayManager.Instance.NextTurn();
     }
 }

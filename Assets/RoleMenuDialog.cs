@@ -11,6 +11,7 @@ public class RoleMenuDialog : BaseDialog
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager.Instance.PlayFx(SoundName.ButtonFX.ToString());
         TitleHeader.text = LanguageConfigs.Instance.GetConfig(GameManager.Instance.Language).RoleTitle;
         Content.text = LanguageConfigs.Instance.GetConfig(GameManager.Instance.Language).RoleText;
         CloseButton.text = LanguageConfigs.Instance.GetConfig(GameManager.Instance.Language).CloseText;
