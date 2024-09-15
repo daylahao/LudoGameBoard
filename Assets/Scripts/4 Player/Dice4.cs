@@ -73,7 +73,7 @@ public class Dice4 : MonoBehaviour
     }
     private IEnumerator DelayedExecution()
     {
-        Debug.Log("Start of coroutine");
+        //Debug.Log("Start of coroutine");
         yield return new WaitForSeconds(0.5f);
         OnRollDice();
     }

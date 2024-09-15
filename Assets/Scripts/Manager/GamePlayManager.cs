@@ -25,7 +25,7 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
     }
     void Start()
     {
-        Debug.Log(GameManager.Instance.isEvent);
+        //Debug.Log(GameManager.Instance.isEvent);
         GameManager.Instance._popUpContainer = P_Spawndialog;
         playerQuantity = GameManager.Instance.PlayQuantity;
         //playerQuantity = 4;
@@ -146,7 +146,7 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
     }
     private IEnumerator DelayedExecution(List<PiecesBase> PiecesCanRun)
     {
-        Debug.Log("Start of coroutine");
+        //Debug.Log("Start of coroutine");
         yield return new WaitForSeconds(0.5f);
         PiecesCanRun[Random.Range(0, PiecesCanRun.Count - 1)].ClickPieces();
     }
@@ -165,7 +165,7 @@ public class GamePlayManager : MonoSingleton<GamePlayManager>
     {
         SoundManager.Instance.PlayBGMusic(SoundName.WinMusic.ToString());
         GameManager.Instance.OnShowDialog<WinGameDialog>("Dialogs/WinGameDialog");
-        Debug.Log("Người chơi " + turnCurrent + " thắng");
+        //Debug.Log("Người chơi " + turnCurrent + " thắng");
     }
     public void NextTurn()
     {

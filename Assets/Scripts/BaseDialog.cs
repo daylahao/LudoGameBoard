@@ -39,7 +39,7 @@ public class BaseDialog : MonoBehaviour
             bk.Invoke();
         }
 
-        Debug.Log("Complete Show");
+        //Debug.Log("Complete Show");
     }
 
     public virtual void ClickCloseDialog()

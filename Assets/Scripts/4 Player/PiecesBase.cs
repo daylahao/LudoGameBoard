@@ -31,7 +31,7 @@ public class PiecesBase : MonoBehaviour
         }
     }
     void HandleClick() {
-        Debug.Log(this.gameObject.name);
+        //Debug.Log(this.gameObject.name);
         if (GamePlayManager.Instance.turnCurrent == Name)
         {
             stepdice = GamePlayManager.Instance.dice.GetDiceValue();
@@ -150,7 +150,7 @@ public class PiecesBase : MonoBehaviour
             bool CanMove = CheckCanMove();
             if (CanMove == true)
             {
-                Debug.Log("Co the di");
+                //Debug.Log("Co the di");
                 if (Step <= GamePlayManager.Instance.TotalCross)
                 {
                     GamePlayManager.Instance.mapLevel.Crosses[CurrentPosition].GetComponent<CrossBase>().ClearPieces();
@@ -219,8 +219,8 @@ public class PiecesBase : MonoBehaviour
 
                     if (GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[i].GetName() != namePieces.None)
                     {
-                        Debug.Log(GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[i].GetName());
-                        Debug.Log("Khong the di vo trong chuong");
+                        //Debug.Log(GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[i].GetName());
+                        //Debug.Log("Khong the di vo trong chuong");
                         return false;
                     }
                 }
@@ -232,13 +232,13 @@ public class PiecesBase : MonoBehaviour
                 {
                     if (GamePlayManager.Instance.mapLevel.houses[GamePlayManager.Instance.turnTemp].Crosses[Step - GamePlayManager.Instance.TotalCross].GetName() != namePieces.None)
                     {
-                        Debug.Log("Khong the di qua trong chuong");
+                        //Debug.Log("Khong the di qua trong chuong");
                         return false;
                     }
-                    Debug.Log("Co the di qua trong chuong");
+                    //Debug.Log("Co the di qua trong chuong");
                     stepdice = 1; return true;
                 }
-                Debug.Log("Khong the di qua trong chuong");
+                //Debug.Log("Khong the di qua trong chuong");
                 return false;
             }
             else
@@ -248,7 +248,7 @@ public class PiecesBase : MonoBehaviour
         }
         else if (!IsOut && (Step + stepdice) > GamePlayManager.Instance.TotalCross && Step < GamePlayManager.Instance.TotalCross) //không đứng ở ô lên chuồng
         {
-            Debug.Log("Không đứng ở ô lên chuồng");
+            //Debug.Log("Không đứng ở ô lên chuồng");
             return false;
         }
         return true;
