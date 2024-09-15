@@ -55,10 +55,6 @@ public class GameManager : MonoSingleton<GameManager>
     }
     public LevelConfig GetConfig(int level)
     {
-        if(level ==0)
-        {
-            return levelConfigs[3];
-        }
         foreach (LevelConfig item in levelConfigs)
         {
             if (item.PlayerQuantity == level)
