@@ -25,7 +25,8 @@ public class MainMenuDialog : BaseDialog
     }
     public void OnClickClassic()
     {
-       GameManager.Instance.OnShowDialog<ClassicMenuDialog>("Dialogs/ClassicLevelDialog");
+        GameManager.Instance.isEvent = false;
+        GameManager.Instance.OnShowDialog<ClassicMenuDialog>("Dialogs/ClassicLevelDialog");
         this.ClickCloseDialog();
     }
     public void OnClickSetting()
@@ -35,7 +36,8 @@ public class MainMenuDialog : BaseDialog
     }
     public void OnClickEvent()
     {
-        GameManager.Instance.OnShowDialog<EventMenuDialog>("Dialogs/EventLevelDialog");
+        GameManager.Instance.isEvent = true;
+        GameManager.Instance.OnShowDialog<ClassicMenuDialog>("Dialogs/ClassicLevelDialog");
         this.ClickCloseDialog();
     }
     public void OnClickRole()

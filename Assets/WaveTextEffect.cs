@@ -7,7 +7,6 @@ public class WaveTextEffect : MonoBehaviour
 {
     List<Animator> _animators;
     
-    bool load = false;
     void Start()
     {
         //Handle();   

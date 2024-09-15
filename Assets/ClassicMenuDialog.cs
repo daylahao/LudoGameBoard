@@ -9,7 +9,7 @@ public class ClassicMenuDialog : BaseDialog
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.isEvent = false;
+        
     }
 
     // Update is called once per frame
