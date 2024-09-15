@@ -3407,6 +3407,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ManagerAll
       objectReference: {fileID: 0}
+    - target: {fileID: 5066124454053269173, guid: 465eaae0c63aeb64a8465cd046ffe585, type: 3}
+      propertyPath: _Configs
+      value: 
+      objectReference: {fileID: 11400000, guid: 092d594fbe7112f48b6c72543660e7de, type: 2}
     - target: {fileID: 6342452207098595250, guid: 465eaae0c63aeb64a8465cd046ffe585, type: 3}
       propertyPath: m_LocalPosition.x
       value: 176.99654
