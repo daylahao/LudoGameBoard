@@ -5,4 +5,4 @@
 - có thể chọn số người chơi và máy còn lại
 ![Bàn cờ 3 người](https://github.com/daylahao/LudoGameBoard/blob/0f672b13c27a0e8677290cb30fc0f0f86e3a61ae/Assets/Images/Map%203.png)
 ![Bàn cờ 4 người](https://github.com/daylahao/LudoGameBoard/blob/0f672b13c27a0e8677290cb30fc0f0f86e3a61ae/Assets/Images/Map%204.png)
-1[Bàn cờ 5 người](https://github.com/daylahao/LudoGameBoard/blob/0f672b13c27a0e8677290cb30fc0f0f86e3a61ae/Assets/Images/Map%203.png)
+![Bàn cờ 5 người](https://github.com/daylahao/LudoGameBoard/blob/0f672b13c27a0e8677290cb30fc0f0f86e3a61ae/Assets/Images/Map%203.png)
