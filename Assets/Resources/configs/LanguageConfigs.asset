@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a96ea256639cae41a958fa7b9a9be52, type: 3}
+  m_Name: LanguageConfigs
+  m_EditorClassIdentifier: 
+  languageConfigs:
+  - LanguageType: 0
+    Title: "\u0110UA NG\u1EF0A"
+    ClassicText: "C\u1ED4 \u0110I\u1EC2N"
+    SettingText: "C\xC0I \u0110\u1EB6T"
+    EventText: "S\u1EF0 KI\u1EC6N"
+    EventDescription: 
+    RoleTitle: "LU\u1EACT CH\u01A0I"
+    RoleText: "- T\u1EEBng ng\u01B0\u1EDDi l\u1EA7n l\u01B0\u1EE3t l\u1EAFc x\xFAc
+      x\u1EAFc l\u1EA5y \u0111i\u1EC3m \u0111\u1EC3 di chuy\u1EC3n \u0111\u1EBFn
+      chu\u1ED3ng, ng\u01B0\u1EDDi n\xE0o v\u1EC1 chu\u1ED3ng t\u1EA1i c\xE1c v\u1ECB
+      tr\xED cao nh\u1EA5t \u0111\u1EA7u ti\xEAn s\u1EBD th\u1EAFng cu\u1ED9c.\r\n
+      - L\u1EAFc x\xFAc x\u1EAFc 1 v\xE0 6 \u0111i\u1EC3m \u0111\u01B0\u1EE3c l\u1EAFc
+      ti\u1EBFp.\r\n - Qu\xE2n c\u1EDD \u1EDF nh\xE0 c\u1EA7n 1 ho\u1EB7c 6 \u0111i\u1EC3m
+      \u0111\u1EC3 ra qu\xE2n (T\u1EA1i m\u0169i t\xEAn).\r\n - Qu\xE2n c\u1EDD di
+      chuy\u1EC3n v\u1EC1 ph\xEDa tr\u01B0\u1EDBc theo s\u1ED1 \u0111i\u1EC3m, khi
+      c\xF3 qu\xE2n c\u1EDD kh\xE1c tr\xEAn \u0111\u01B0\u1EDDng s\u1EBD b\u1ECB
+      ch\u1EB7n. \r\n - N\u1EBFu kho\u1EA3ng c\xE1ch c\u1EE7a qu\xE2n c\u1EDD \u0111\u1ED1i
+      th\u1EE7 b\u1EB1ng s\u1ED1 \u0111i\u1EC3m s\u1EBD ti\u1EBFn t\u1EDBi v\xE0
+      \u0111\xE1 \u0111\u1ED1i th\u1EE7 v\u1EC1 nh\xE0.\r\n - Kh\xF4ng c\xF3 n\u01B0\u1EDBc
+      \u0111i h\u1EE3p l\u1EC7 s\u1EBD b\u1ECB tua l\u01B0\u1EE3t.\r\n - Khi l\xEAn
+      chu\u1ED3ng l\u1EA7n \u0111\u1EA7u s\u1EBD ti\u1EBFn theo s\u1ED1 \u0111i\u1EC3m
+      x\xFAc x\u1EAFc, qu\xE2n c\u1EDD c\xF3 ch\u1EB7n nhau\r\n - Trong chu\u1ED3ng
+      ch\u1EC9 c\xF3 th\u1EC3 ti\u1EBFn t\u1EEBng b\u01B0\u1EDBc m\u1ED9t theo \u0111i\u1EC3m
+      x\xFAc x\u1EAFc t\u01B0\u01A1ng \u1EE9ng"
+    YourTurnText: "\u0110\u1EBFn l\u01B0\u1EE3t c\u1EE7a b\u1EA1n!"
+    WinText: "TH\u1EAENG !!"
+    LoseText: 
+    WinTitle: "K\u1EBET TH\xDAC"
+    RollText: "B\u1EAFt \u0111\u1EA7u tr\xF2 ch\u01A1i\\nL\u1EAFc x\xFAc x\u1EAFc!"
+    PauseText: "T\u1EA0M D\u1EEANG"
+    RestartText: "Ch\u01A1i l\u1EA1i m\xE0n"
+    IngameSettingText: "C\xE0i \u0111\u1EB7t"
+    ExitText: "Tho\xE1t"
+    ResumeText: "Ti\u1EBFp t\u1EE5c"
+    CloseText: "\u0110\xD3NG"
+    BackText: "QUAY L\u1EA0I"
+    SFXLabel: "HI\u1EC6U \u1EE8NG"
+    BGMLabel: "NH\u1EA0C N\u1EC0N"
+    Playerlabel: "Ng\u01B0\u1EDDi ch\u01A1i"
+    PlayerText: "NG\u01AF\u1EDCI"
+    BotText: "M\xC1Y"
+    ChooseLanguageText: "Ch\u1ECDn ng\xF4n ng\u1EEF"
+    Maplabel: "B\u1EA3n \u0111\u1ED3"
+  - LanguageType: 1
+    Title: HORSE RACE
+    ClassicText: BASIC
+    SettingText: SETTING
+    EventText: EVENT
+    EventDescription: 
+    RoleTitle: RULE
+    RoleText: "- Each one roll the dice to get moving point, one fills all the higher
+      positions on the stable first is the winner.\r\n - 1 point and 6 point can
+      continue to roll dice.\r\n - Piece at home need 1 or 6 point to go on board
+      (at the arrow mark).\r\n - Piece move as moving point, will be blocked when
+      there's another piece on moving route.\r\n - If other's piece stand on target
+      position, move and kick other's piece back home.\r\n - If no move available,
+      skip turn.\r\n - When get to stable the first time, move as moving point, pieces
+      do block each other.\r\n - When on stable, only moving each step by get move
+      point as the number marked."
+    YourTurnText: Your turn!
+    WinText: WIN !!
+    LoseText: 
+    WinTitle: END GAME
+    RollText: Game started\nRoll the dice!
+    PauseText: PAUSE
+    RestartText: Restart
+    IngameSettingText: Setting
+    ExitText: Main menu
+    ResumeText: Resume
+    CloseText: CLOSE
+    BackText: BACK
+    SFXLabel: SFX
+    BGMLabel: MUSIC
+    Playerlabel: Player Number
+    PlayerText: PLAYER
+    BotText: COMPUTER
+    ChooseLanguageText: Choose language
+    Maplabel: Map

@@ -9,22 +9,87 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: d6088a047ee56d04789c7d58f9d77065, type: 3}
   m_Name: LevelConfigs
   m_EditorClassIdentifier: Assembly-CSharp::LevelConfigs
   _Level:
   - PlayerQuantity: 4
+    ChessPieceCount: 4
+    Map: {fileID: 2114492921240309173, guid: 7b805540f3b6ecb4b9831bfeecbe2518, type: 3}
     TotalCross: 55
     Position:
     - sprite: {fileID: 21300000, guid: 21a4992669756e74d8b00f7c492b430a, type: 3}
+      Prefab: {fileID: 1040768787829449885, guid: 5e2e83cbcc690634eae5ffefac0f1822, type: 3}
       name: 0
       P_Start: 0
     - sprite: {fileID: 21300000, guid: 3463ccddf8d1ecd408ea0bbb492be0e3, type: 3}
+      Prefab: {fileID: 3668999007244062361, guid: 93f0dfb06a6c17544b37fd6fd2d4547b, type: 3}
       name: 1
       P_Start: 14
     - sprite: {fileID: 21300000, guid: 533fc3b496eb547438522f95e8129694, type: 3}
+      Prefab: {fileID: 1139370373633761711, guid: bb80b61b8168ccf4da38a8ab02be53eb, type: 3}
       name: 2
       P_Start: 28
     - sprite: {fileID: 21300000, guid: 929143432c0e6c942b12846beed579ca, type: 3}
+      Prefab: {fileID: 5938430183287567890, guid: eba7c8c11d285404f8b032b199d93220, type: 3}
       name: 3
       P_Start: 42
+  - PlayerQuantity: 3
+    ChessPieceCount: 4
+    Map: {fileID: 2388088779489556897, guid: 5cfb2c15d036bab4d93a9e43c9bda173, type: 3}
+    TotalCross: 41
+    Position:
+    - sprite: {fileID: 21300000, guid: 21a4992669756e74d8b00f7c492b430a, type: 3}
+      Prefab: {fileID: 1040768787829449885, guid: 5e2e83cbcc690634eae5ffefac0f1822, type: 3}
+      name: 0
+      P_Start: 0
+    - sprite: {fileID: 21300000, guid: 3463ccddf8d1ecd408ea0bbb492be0e3, type: 3}
+      Prefab: {fileID: 3668999007244062361, guid: 93f0dfb06a6c17544b37fd6fd2d4547b, type: 3}
+      name: 1
+      P_Start: 14
+    - sprite: {fileID: 21300000, guid: 929143432c0e6c942b12846beed579ca, type: 3}
+      Prefab: {fileID: 5938430183287567890, guid: eba7c8c11d285404f8b032b199d93220, type: 3}
+      name: 3
+      P_Start: 28
+  - PlayerQuantity: 5
+    ChessPieceCount: 4
+    Map: {fileID: 3551401749834744774, guid: 5881b337e22ab514d911a7e888ecb2df, type: 3}
+    TotalCross: 69
+    Position:
+    - sprite: {fileID: 21300000, guid: 21a4992669756e74d8b00f7c492b430a, type: 3}
+      Prefab: {fileID: 1040768787829449885, guid: 5e2e83cbcc690634eae5ffefac0f1822, type: 3}
+      name: 0
+      P_Start: 0
+    - sprite: {fileID: 21300000, guid: 3463ccddf8d1ecd408ea0bbb492be0e3, type: 3}
+      Prefab: {fileID: 3668999007244062361, guid: 93f0dfb06a6c17544b37fd6fd2d4547b, type: 3}
+      name: 1
+      P_Start: 14
+    - sprite: {fileID: 21300000, guid: 533fc3b496eb547438522f95e8129694, type: 3}
+      Prefab: {fileID: 1139370373633761711, guid: bb80b61b8168ccf4da38a8ab02be53eb, type: 3}
+      name: 2
+      P_Start: 28
+    - sprite: {fileID: 21300000, guid: e89e601061af10948b86406b5c304a73, type: 3}
+      Prefab: {fileID: 2889552705558652718, guid: 1a9735bd1861a9d4c8c088f59ccf850a, type: 3}
+      name: 4
+      P_Start: 42
+    - sprite: {fileID: 21300000, guid: 929143432c0e6c942b12846beed579ca, type: 3}
+      Prefab: {fileID: 5938430183287567890, guid: eba7c8c11d285404f8b032b199d93220, type: 3}
+      name: 3
+      P_Start: 56
+  - PlayerQuantity: 3
+    ChessPieceCount: 1
+    Map: {fileID: 2388088779489556897, guid: 5cfb2c15d036bab4d93a9e43c9bda173, type: 3}
+    TotalCross: 41
+    Position:
+    - sprite: {fileID: 21300000, guid: 21a4992669756e74d8b00f7c492b430a, type: 3}
+      Prefab: {fileID: 1040768787829449885, guid: 5e2e83cbcc690634eae5ffefac0f1822, type: 3}
+      name: 0
+      P_Start: 0
+    - sprite: {fileID: 21300000, guid: 3463ccddf8d1ecd408ea0bbb492be0e3, type: 3}
+      Prefab: {fileID: 3668999007244062361, guid: 93f0dfb06a6c17544b37fd6fd2d4547b, type: 3}
+      name: 1
+      P_Start: 14
+    - sprite: {fileID: 21300000, guid: 929143432c0e6c942b12846beed579ca, type: 3}
+      Prefab: {fileID: 5938430183287567890, guid: eba7c8c11d285404f8b032b199d93220, type: 3}
+      name: 3
+      P_Start: 28
