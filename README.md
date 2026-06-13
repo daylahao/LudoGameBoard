@@ -99,7 +99,7 @@ Players can choose between multiple board layouts before starting a match.
 
 ## Gameplay
 
-![INSERT_GAMEPLAY_SCREENSHOT](https://github.com/daylahao/LudoGameBoard/blob/main/Assets/Images/Demo/Ludo%20game%20board/Vi%20Game%20Play.jpg?raw=true
+![INSERT_GAMEPLAY_SCREENSHOT](https://github.com/daylahao/LudoGameBoard/blob/main/Assets/Images/Demo/Ludo%20game%20board/Vi%20Game%20Play.jpg?raw=true)
 
 ---
 
@@ -107,7 +107,7 @@ Players can choose between multiple board layouts before starting a match.
 
 The game uses stylized 3D cartoon chess pieces to create a colorful and approachable visual style suitable for casual players.
 
-[INSERT_3D_PIECES_IMAGE]
+![INSERT_3D_PIECES_IMAGE](https://github.com/daylahao/LudoGameBoard/blob/main/Assets/Images/Demo/Ludo%20game%20board/Asset%203D%20Ludo%20BoardGame.PNG?raw=true)
 
 ---
 
